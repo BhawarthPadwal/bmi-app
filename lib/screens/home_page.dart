@@ -16,7 +16,19 @@ class _HomePageState extends State<HomePage> {
   var htController_ft = TextEditingController();
   var htController_in = TextEditingController();
 
-  calculateBMI() {
+  Color determineColor(double num) {
+    if (num <= 18.4) {
+      return paleGreenColor;
+    } else if (num >= 18.5 && num < 24.9) {
+      return greenColor;
+    } else if (num >= 25.0 && num < 39.9) {
+      return chromeColor;
+    } else {
+      return redColor;
+    }
+  }
+
+  void calculateBMI() {
     String weight = wtController.text;
     String height_ft = htController_ft.text;
     String height_in = htController_in.text;
@@ -64,7 +76,10 @@ class _HomePageState extends State<HomePage> {
             title: Text('BMI Result',
                 style: kCustomTextStyle(blackColor, padding14, true)),
             content: Text('Your BMI result is ${bmi.toStringAsFixed(2)}',
-                style: kCustomTextStyle(blackColor, padding14, true)),
+                style: kCustomTextStyle(
+                    determineColor(bmi),
+                    padding14, 
+                    true)),
             actions: [
               TextButton(
                   onPressed: () {
