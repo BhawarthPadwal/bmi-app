@@ -16,8 +16,6 @@ class _HomePageState extends State<HomePage> {
   var htController_ft = TextEditingController();
   var htController_in = TextEditingController();
 
-  /*String bmiResult = '';*/
-
   calculateBMI() {
     String weight = wtController.text;
     String height_ft = htController_ft.text;
@@ -37,31 +35,16 @@ class _HomePageState extends State<HomePage> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('Error',
-                  style: kCustomTextStyle(blackColor, padding14, true)
-                  /*TextStyle(
-                    fontSize: padding14,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Poppins'),*/
-                  ),
+                  style: kCustomTextStyle(blackColor, padding14, true)),
               content: Text('Please fill all fields',
-                  style: kCustomTextStyle(blackColor, padding14, true)
-                  /*TextStyle(
-                    fontSize: padding14,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Poppins'),*/
-                  ),
+                  style: kCustomTextStyle(blackColor, padding14, true)),
               actions: [
                 TextButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
                     child: Text('Okay',
-                        style: kCustomTextStyle(blackColor, padding14, true)
-                        /*TextStyle(
-                          fontSize: padding14,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Poppins'),*/
-                        ))
+                        style: kCustomTextStyle(blackColor, padding14, true)))
               ],
             );
           });
@@ -79,31 +62,16 @@ class _HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('BMI Result',
-                style: kCustomTextStyle(blackColor, padding14, true)
-                /*TextStyle(
-                  fontSize: padding14,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Poppins'),*/
-                ),
+                style: kCustomTextStyle(blackColor, padding14, true)),
             content: Text('Your BMI result is ${bmi.toStringAsFixed(2)}',
-                style: kCustomTextStyle(blackColor, padding14, true)
-                /*TextStyle(
-                  fontSize: padding14,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Poppins'),*/
-                ),
+                style: kCustomTextStyle(blackColor, padding14, true)),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                   child: Text('Okay',
-                      style: kCustomTextStyle(blackColor, padding14, true)
-                      /*TextStyle(
-                        fontSize: padding14,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Poppins'),*/
-                      ))
+                      style: kCustomTextStyle(blackColor, padding14, true)))
             ],
           );
         });
@@ -115,13 +83,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           elevation: 5,
           title: Text('BMI Calculator',
-              style: kCustomTextStyle(blackColor, padding18, true)
-              /*TextStyle(
-                fontSize: padding18,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Poppins'),*/
-              ),
+              style: kCustomTextStyle(blackColor, padding18, true)),
           centerTitle: true,
           backgroundColor: transparentColor,
         ),
@@ -132,21 +94,13 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text('Track Your Health: Calculate Your BMI Today!',
-                    style: kCustomTextStyle(blackColor, padding16, true)
-                    /*TextStyle(
-                      fontSize: padding16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Poppins'),*/
-                    ),
+                    style: kCustomTextStyle(blackColor, padding16, true)),
                 heightBox(padding50),
                 TextField(
                   controller: wtController,
                   decoration: InputDecoration(
                     label: Text('Enter your weight in (kg)',
-                        style: kLabelTextStyle(padding14)
-                        /*TextStyle(fontSize: padding14, fontFamily: 'Poppins'),*/
-                        ),
+                        style: kLabelTextStyle(padding14)),
                     prefixIcon: Icon(Icons.monitor_weight_outlined),
                     border: OutlineInputBorder(),
                   ),
@@ -157,9 +111,7 @@ class _HomePageState extends State<HomePage> {
                   controller: htController_ft,
                   decoration: InputDecoration(
                     label: Text('Enter your height in (ft)',
-                        style: kLabelTextStyle(padding14)
-                        /*TextStyle(fontSize: padding14, fontFamily: 'Poppins'),*/
-                        ),
+                        style: kLabelTextStyle(padding14)),
                     prefixIcon: Icon(Icons.height_outlined),
                     border: OutlineInputBorder(),
                   ),
@@ -170,15 +122,13 @@ class _HomePageState extends State<HomePage> {
                   controller: htController_in,
                   decoration: InputDecoration(
                     label: Text('Enter your height in (in)',
-                        style: kLabelTextStyle(padding14)
-                        /*TextStyle(fontSize: padding14, fontFamily: 'Poppins'),*/
-                        ),
+                        style: kLabelTextStyle(padding14)),
                     prefixIcon: Icon(Icons.height_outlined),
                     border: OutlineInputBorder(),
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                heightBox(padding60),
+                heightBox(padding50),
                 ElevatedButton(
                   onPressed: () {
                     calculateBMI();
@@ -198,16 +148,119 @@ class _HomePageState extends State<HomePage> {
                     height: padding50,
                     child: Center(
                       child: Text('Calculate your BMI',
-                          style: kCustomTextStyle(whiteColor, padding14, true)
-                          /*TextStyle(
-                            color: whiteColor,
-                            fontSize: padding14,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Poppins'),*/
-                          ),
+                          style: kCustomTextStyle(whiteColor, padding14, true)),
                     ),
                   ),
                 ),
+                heightBox(padding50),
+                Table(
+                  border: TableBorder.all(
+                    color: blackColor,
+                    width: 1
+                  ),
+                  children: [
+                    TableRow(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'BMI',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Status',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            '<= 18.4',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Underweight',
+                            style: kCustomTextStyle(paleGreenColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            '18.5 - 24.9',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Normal',
+                            style: kCustomTextStyle(greenColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            '25.0 - 39.9',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Overweight',
+                            style: kCustomTextStyle(chromeColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                    ]),
+                    TableRow(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            '>= 40',
+                            style: kCustomTextStyle(blackColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Obese',
+                            style: kCustomTextStyle(redColor, padding14, true),
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ],
+                )
               ],
             ),
           ),
